@@ -79,5 +79,22 @@
                     
                     return HttpResponse('用户列表')
             
+        总 urls.py
+            
+            from django.conf.urls import url, include
+
+            urlpatterns = [
+                url(r'^api/', include('api.urls'))
+            ]
+            
+        urls.py
         
+            from django.conf.urls import url
+            from .views import UsersView
+
+            urlpatterns = [
+                url(r'^(?P<version>[v1|v2]+)users/$', UsersView.as_view()),
+            ]
+
+            
             
