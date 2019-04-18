@@ -93,7 +93,7 @@
             from .views import UsersView
 
             urlpatterns = [
-                url(r'^(?P<version>[v1|v2]+)users/$', UsersView.as_view()),
+                url(r'^(?P<version>[v1|v2]+)/users/$', UsersView.as_view()),
             ]
 
             
