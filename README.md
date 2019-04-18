@@ -77,6 +77,8 @@
                 
                     print(request.version)  # 直接获取版本
                     
+                    print(request.versioning_scheme)  # 获取处理版本的对象
+                    
                     return HttpResponse('用户列表')
             
         总 urls.py
