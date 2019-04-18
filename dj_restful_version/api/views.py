@@ -1,6 +1,6 @@
 from django.http import JsonResponse, HttpResponse
 from rest_framework .views import APIView
-from rest_framework.versioning import QueryParameterVersioning
+from rest_framework.versioning import QueryParameterVersioning, URLPathVersioning
 
 
 # class ParamVersion(object):
@@ -19,9 +19,15 @@ from rest_framework.versioning import QueryParameterVersioning
 #         return HttpResponse('用户列表')
 
 
-class UsersView(APIView):
+# class UsersView(APIView):
+#
+#     versioning_class = QueryParameterVersioning
+#
+#     def get(self, request, *args, **kwargs):
+#         print(request.version)
+#         return HttpResponse('用户列表')
 
-    versioning_class = QueryParameterVersioning
+class UsersView(APIView):
 
     def get(self, request, *args, **kwargs):
         print(request.version)

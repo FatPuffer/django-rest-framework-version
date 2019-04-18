@@ -120,8 +120,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# REST_FRAMEWORK = {
+#     "DEFAULT_VERSION": "v1",  # 默认版本
+#     "ALLOWED_VERSIONS": ["v1", "v2"],  # 允许版本
+#     "VERSION_PARAM": "version"  # 查询字符串
+# }
+
 REST_FRAMEWORK = {
-    "DEFAULT_VERSION": "v1",  # 默认版本
-    "ALLOWED_VERSIONS": ["v1", "v2"],  # 允许版本
-    "VERSION_PARAM": "version"  # 查询字符串
+    # 全局版本控制
+    "DEFAULT_VERSIONING_CLASS": "rest_framework.versioning.URLPathVersioning",
 }
