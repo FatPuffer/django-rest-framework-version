@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="030bd22b-2935-4e1b-8963-4707c22b2914" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dj_restful_version/api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/dj_restful_version/api/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dj_restful_version/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/dj_restful_version/api/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -75,12 +73,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="cell" value="62" />
-          <entry key="py" value="2772" />
+          <entry key="py" value="2794" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="2772" />
+          <entry key="Python" value="2794" />
           <entry key="Scratch" value="62" />
         </counts>
       </usages-collector>
@@ -116,16 +114,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dj_restful_version/api/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="129" column="39" lean-forward="true" selection-start-line="129" selection-start-column="39" selection-end-line="129" selection-end-column="39" />
+            <state relative-caret-position="192">
+              <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
-                <marker date="1555665591287" expanded="true" signature="839:840" ph="..." />
-                <marker date="1555665591287" expanded="true" signature="1367:1372" ph="..." />
-                <marker date="1555665591287" expanded="true" signature="2018:2045" ph="..." />
-                <marker date="1555665591287" expanded="true" signature="2018:2086" ph="..." />
-                <marker date="1555665591287" expanded="true" signature="3159:3743" ph="..." />
-                <marker date="1555665591287" expanded="true" signature="3771:4004" ph="..." />
+                <marker date="1555666603718" expanded="true" signature="839:840" ph="..." />
+                <marker date="1555666603718" expanded="true" signature="1367:1372" ph="..." />
+                <marker date="1555666603718" expanded="true" signature="2018:2045" ph="..." />
+                <marker date="1555666603718" expanded="true" signature="2018:2086" ph="..." />
+                <marker date="1555666603718" expanded="true" signature="3833:3922" ph="..." />
+                <marker date="1555666603718" expanded="true" signature="3950:4183" ph="..." />
               </folding>
             </state>
           </provider>
@@ -484,16 +482,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dj_restful_version/api/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="129" column="39" lean-forward="true" selection-start-line="129" selection-start-column="39" selection-end-line="129" selection-end-column="39" />
+        <state relative-caret-position="192">
+          <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
-            <marker date="1555665591287" expanded="true" signature="839:840" ph="..." />
-            <marker date="1555665591287" expanded="true" signature="1367:1372" ph="..." />
-            <marker date="1555665591287" expanded="true" signature="2018:2045" ph="..." />
-            <marker date="1555665591287" expanded="true" signature="2018:2086" ph="..." />
-            <marker date="1555665591287" expanded="true" signature="3159:3743" ph="..." />
-            <marker date="1555665591287" expanded="true" signature="3771:4004" ph="..." />
+            <marker date="1555666603718" expanded="true" signature="839:840" ph="..." />
+            <marker date="1555666603718" expanded="true" signature="1367:1372" ph="..." />
+            <marker date="1555666603718" expanded="true" signature="2018:2045" ph="..." />
+            <marker date="1555666603718" expanded="true" signature="2018:2086" ph="..." />
+            <marker date="1555666603718" expanded="true" signature="3833:3922" ph="..." />
+            <marker date="1555666603718" expanded="true" signature="3950:4183" ph="..." />
           </folding>
         </state>
       </provider>
