@@ -92,20 +92,40 @@ class RoleView(APIView):
 from rest_framework import serializers
 
 
-class UserInfoSerializer(serializers.Serializer):
-    """继承序列化对象实现序列化"""
-    # 获取choice选项中的编号
-    aaa = serializers.CharField(source='user_type')
-    # 获取choice选项中的值 get_字段名_display
-    bbb = serializers.CharField(source='get_user_type_display')
-    username = serializers.CharField()
-    password = serializers.CharField()
-    # 显示外键group表中的id和title字段
-    gp = serializers.CharField(source="group.title")
-    # SerializerMethodField：自定义显示，实现嵌套序列化
-    rls = serializers.SerializerMethodField()
+# class UserInfoSerializer(serializers.Serializer):
+#     """继承序列化对象实现序列化"""
+#     # 获取choice选项中的编号
+#     aaa = serializers.CharField(source='user_type')
+#     # 获取choice选项中的值 get_字段名_display
+#     bbb = serializers.CharField(source='get_user_type_display')
+#     username = serializers.CharField()
+#     password = serializers.CharField()
+#     # 显示外键group表中的id和title字段
+#     gp = serializers.CharField(source="group.title")
+#     # SerializerMethodField：自定义显示，实现嵌套序列化
+#     rls = serializers.SerializerMethodField()
+#
+#     # 自定义显示
+#     def get_rls(self, row):
+#         role_obj_list = row.roles.all()
+#         ret = []
+#         for item in role_obj_list:
+#             ret.append({"id": item.id, "title": item.title})
+#         return ret
 
-    # 自定义显示
+class UserInfoSerializer(serializers.ModelSerializer):
+    # 自定义字段
+    type_name = serializers.CharField(source='get_user_type_display')
+    # 外键字段处理
+    rls = serializers.SerializerMethodField()
+    # 获取外键对象__str__属性返回值，默认返回外键对象id
+    group = serializers.StringRelatedField()
+
+    class Meta:
+        model = UserInfo
+        # fields = "__all__"
+        fields = ["id", "user_type", "type_name", "username", "password", "group", "roles", "rls"]
+
     def get_rls(self, row):
         role_obj_list = row.roles.all()
         ret = []
