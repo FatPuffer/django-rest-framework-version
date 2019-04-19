@@ -46,3 +46,30 @@ class UsersView(APIView):
         print(url2)
 
         return HttpResponse('用户列表')
+
+
+from rest_framework.parsers import FileUploadParser
+
+
+class ParserView(APIView):
+    # parser_classes = [FileUploadParser,]  # 该视图支持上传文件
+    """
+    JSONParser:表示只能解析content-type:application/json头
+    {'name': 'fatpuffer', 'age': 18}
+    
+    FormParser:表示只能解析content-type:application/x-www-form-urlencoded头
+    <QueryDict: {'name': ['fatpuffer'], 'age': ['22']}>
+    """
+
+    def post(self, request, *args, **kwargs):
+        """
+        允许用户发送JSON格式数据
+            a. content-type: application/json
+            b. {"name":"fatpuffer", age:18}
+        """
+        print(request.data)
+        print(request.data['name'])
+        print(request.data['age'])
+        return HttpResponse('用户信息')
+
+
