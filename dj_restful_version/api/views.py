@@ -52,6 +52,8 @@ class UsersView(APIView):
         print(url)
 
         # 反向生成 URL （基于 Django）
+        # viewname：url中name属性
+        # kwargs：字典形式传参给url正则匹配内容
         url2 = reverse(viewname='xxx', kwargs={'version': 2})
         print(url2)
 
@@ -120,6 +122,7 @@ from rest_framework import serializers
 #     password = serializers.CharField()
 #     # 显示外键group表中的id和title字段
 #     gp = serializers.CharField(source="group.title")
+
 #     # SerializerMethodField：自定义显示，实现嵌套序列化
 #     rls = serializers.SerializerMethodField()
 #
@@ -169,7 +172,7 @@ from rest_framework import serializers
 
 
 # ----------------------------------------------------------
-#  HyperlinkedIdentityField 实现关联表的url生成
+# HyperlinkedIdentityField 实现关联表的url生成
 # 不常用
 
 
@@ -204,7 +207,11 @@ class GroupView(APIView):
     def get(self, request, *args, **kwargs):
         pk = kwargs.get("pk")
         obj = UserGroup.objects.filter(pk=pk).first()
+        # 1.实例化，一般是将数据封装到对象：__new__ , __init__
+        # many=True，接下来执行ListSerializer对象的构造方法
+        # many=False，接下来执行GroupSerializer对象的构造方法
         ser = GroupSerializer(instance=obj, many=False)
+        # 2.调用对象的data属性
         ret = json.dumps(ser.data, ensure_ascii=False)
 
         return HttpResponse(ret)
@@ -213,24 +220,65 @@ class GroupView(APIView):
 # ----------------------------------------------------------
 # 验证数据
 
-class CheckValidator:
-    """自定义验证规则"""
+# class CheckValidator:
+#     """自定义验证规则"""
+#
+#     def __init__(self, base):
+#         self.base = base
+#
+#     def __call__(self, value):
+#         if not value.startswith(self.base):
+#             message = "标题必须以{}开头".format(self.base)
+#             raise serializers.ValidationError(message)
+#
+#     def set_context(self, serializer_field):
+#         # 执行之前调用，serializer_field是当前字段对象
+#         pass
+#
+#
+# class UserGroupSerializer(serializers.Serializer):
+#     title = serializers.CharField(error_messages={"required": "标题不能为空"}, validators=[CheckValidator('Fatpuffer'),])
+#
+#
+# class UserGroupView(APIView):
+#
+#     def post(self, request, *args, **kwargs):
+#         serializer = UserGroupSerializer(data=request.data)
+#         if serializer.is_valid():
+#             print(serializer.validated_data['title'])
+#         else:
+#             print(serializer.errors)
+#
+#         return HttpResponse('提交数据')
 
-    def __init__(self, base):
-        self.base = base
 
-    def __call__(self, value):
-        if not value.startswith(self.base):
-            message = "标题必须以{}开头".format(self.base)
-            raise serializers.ValidationError(message)
-
-    def set_context(self, serializer_field):
-        # 执行之前调用，serializer_field是当前字段对象
-        pass
+# ----------------------------------------------------------
+# 使用钩子方法验证单个数据
 
 
 class UserGroupSerializer(serializers.Serializer):
-    title = serializers.CharField(error_messages={"required": "标题不能为空"}, validators=[CheckValidator('Fatpuffer'),])
+    title = serializers.CharField(error_messages={"required": "标题不能为空"})
+
+    def validate_title(self, value):
+        from rest_framework import exceptions
+        if not value.startswith('Fat'):
+            message = "标题必须以{}开头".format('Fat')
+            raise exceptions.ValidationError(message)
+            # return message
+        return value
+
+
+    """
+    # 对多个字段进行验证
+    def validate(self, attrs):
+        # arrrs是数据组成的字典
+    
+        # 判断linux的数是否在linux分类
+        if "linux" in attrs.get('title') and attrs['category_post'] == 2:
+            return attrs
+        else:
+            raise serializers.ValidationError("图书与分类不一致")
+    """
 
 
 class UserGroupView(APIView):
