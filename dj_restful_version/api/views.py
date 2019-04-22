@@ -3,8 +3,12 @@ from rest_framework .views import APIView
 from rest_framework.versioning import QueryParameterVersioning, URLPathVersioning
 from django.urls import reverse
 
-from .models import Role, UserInfo
+from .models import Role, UserInfo, UserGroup
 
+
+# ----------------------------------------------------------
+# http://127.0.0.1:8000/api/v1/userinfo/
+# 自定义版本管理
 
 # class ParamVersion(object):
 #
@@ -22,6 +26,9 @@ from .models import Role, UserInfo
 #         return HttpResponse('用户列表')
 
 
+# ----------------------------------------------------------
+# 版本控制：http://127.0.0.1:8000/api/v1/userinfo/
+
 # class UsersView(APIView):
 #
 #     versioning_class = QueryParameterVersioning
@@ -29,6 +36,7 @@ from .models import Role, UserInfo
 #     def get(self, request, *args, **kwargs):
 #         print(request.version)
 #         return HttpResponse('用户列表')
+
 
 class UsersView(APIView):
 
@@ -49,6 +57,9 @@ class UsersView(APIView):
 
         return HttpResponse('用户列表')
 
+
+# ----------------------------------------------------------
+# 解析器
 
 from rest_framework.parsers import FileUploadParser
 
@@ -75,6 +86,9 @@ class ParserView(APIView):
         return HttpResponse('用户信息')
 
 
+# ----------------------------------------------------------
+#  自定义序列化
+
 import json
 
 
@@ -87,6 +101,10 @@ class RoleView(APIView):
         ret = json.dumps(roles, ensure_ascii=False)
 
         return HttpResponse()
+
+
+# ----------------------------------------------------------
+#  继承 Serializer 类序列化
 
 
 from rest_framework import serializers
@@ -114,6 +132,10 @@ from rest_framework import serializers
 #         return ret
 
 
+# ----------------------------------------------------------
+#  继承 ModelSerializer 类序列化
+
+
 # class UserInfoSerializer(serializers.ModelSerializer):
 #     # 自定义字段
 #     type_name = serializers.CharField(source='get_user_type_display')
@@ -134,7 +156,17 @@ from rest_framework import serializers
 #             ret.append({"id": item.id, "title": item.title})
 #         return ret
 
+
+# ----------------------------------------------------------
+#  HyperlinkedIdentityField 实现关联表的url生成
+# 不常用
+
+
 class UserInfoSerializer(serializers.ModelSerializer):
+    # lookup_url_kwarg：url中的正则名
+    # lookup_field：根据哪个字段生成url
+    group = serializers.HyperlinkedIdentityField(view_name='gp', lookup_field='group_id', lookup_url_kwarg='pk')
+
     class Meta:
         model = UserInfo
         fields = "__all__"
@@ -144,8 +176,27 @@ class UserInfoSerializer(serializers.ModelSerializer):
 class UserInfoView(APIView):
     def get(self, request, *args, **kwargs):
         user = UserInfo.objects.all()
-        ser = UserInfoSerializer(instance=user, many=True)
+        # 使用HyperlinkedIdentityField时序列化对象必须加context={"request": request}
+        ser = UserInfoSerializer(instance=user, many=True, context={"request": request})
 
         ret = json.dumps(ser.data, ensure_ascii=False)
         return HttpResponse(ret)
+
+
+class GroupSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = UserGroup
+        fields = "__all__"
+
+
+class GroupView(APIView):
+    def get(self, request, *args, **kwargs):
+        pk = kwargs.get("pk")
+        obj = UserGroup.objects.filter(pk=pk).first()
+        ser = GroupSerializer(instance=obj, many=False)
+        ret = json.dumps(ser.data, ensure_ascii=False)
+
+        return HttpResponse(ret)
+
 

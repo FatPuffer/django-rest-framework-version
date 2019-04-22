@@ -129,6 +129,6 @@ STATIC_URL = '/static/'
 REST_FRAMEWORK = {
     # 全局版本控制
     "DEFAULT_VERSIONING_CLASS": "rest_framework.versioning.URLPathVersioning",
-
+    # 继承使用全局解释器
     "DEFAULT_PARSER_CLASSES": ["rest_framework.parsers.JSONParser", "rest_framework.parsers.FormParser"]
 }
