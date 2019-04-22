@@ -291,3 +291,63 @@ class UserGroupView(APIView):
             print(serializer.errors)
 
         return HttpResponse('提交数据')
+
+
+# ----------------------------------------------------------
+# 分页
+# 1.分页，看第n页，每页显示n条数据
+
+
+from api.utils.serializers.pager import PagerSerializer
+from rest_framework.response import Response
+from rest_framework.pagination import PageNumberPagination
+
+
+class MyPageNumberPagination(PageNumberPagination):
+    """
+        继承PageNumberPagination并扩展分页
+        http://127.0.0.1:8000/api/v1/pageer1/?page=2&size=3
+    """
+    page_size = 2  # 每页显示多少个
+    page_size_query_param = 'size'  # 每页显示数量 ?page=1&size=3
+    max_page_size = 5  # 每页显示最大值，防止一次性获取数据过大，导致数据库崩溃
+
+    page_query_param = 'page'  # 查询参数 page=1
+
+
+class Pager1View(APIView):
+    """
+        http://127.0.0.1:8000/api/v1/pageer1/?page=4
+    """
+    def get(self, request, *args, **kwargs):
+
+        # 获取所有数据
+        roles = Role.objects.all()
+
+        # 创建分页对象
+        pg = PageNumberPagination()
+        # pg = MyPageNumberPagination()
+
+        # 在数据库中获取分页数据
+        page_roles = pg.paginate_queryset(queryset=roles, request=request, view=self)
+
+        # 对分页数据进行序列化
+        ser = PagerSerializer(instance=page_roles, many=True)
+
+        # 提供上一页下一页连接，以及数据总数量
+        # page = pg.get_paginated_response(ser.data)
+        # return Response(page.data)
+
+        return Response(ser.data)
+
+
+# ----------------------------------------------------------
+# 分页
+# 2.分页，在n个位置，向后查看n条数据
+
+
+
+
+# ----------------------------------------------------------
+# 分页
+# 3.加密分页，上一页和下一页：在分页时记录最大页码和最小页码，实现跳转时查询，避免随着页码越大查询数据越多从而导致加载数据缓慢问题
