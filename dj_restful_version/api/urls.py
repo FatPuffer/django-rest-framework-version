@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^(?P<version>[v1|v2]+)/roles/$', RoleView.as_view()),
     url(r'^(?P<version>[v1|v2]+)/userinfo/$', UserInfoView.as_view()),
     url(r'^(?P<version>[v1|v2]+)/group/(?P<pk>\d+)$', GroupView.as_view(), name='gp'),
+    url(r'^(?P<version>[v1|v2]+)/usergroup/$', UserGroupView.as_view()),
 ]

@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dj_restful_version/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/dj_restful_version/api/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dj_restful_version/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/dj_restful_version/api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dj_restful_version/dj_restful_version/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/dj_restful_version/dj_restful_version/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -77,12 +76,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="cell" value="76" />
-          <entry key="py" value="3334" />
+          <entry key="py" value="3911" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="3334" />
+          <entry key="Python" value="3911" />
           <entry key="Scratch" value="76" />
         </counts>
       </usages-collector>
@@ -106,8 +105,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dj_restful_version/api/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+            <state relative-caret-position="360">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -118,15 +117,19 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dj_restful_version/api/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="160" column="34" selection-start-line="160" selection-start-column="34" selection-end-line="160" selection-end-column="34" />
+            <state relative-caret-position="410">
+              <caret line="242" column="35" selection-start-line="242" selection-start-column="35" selection-end-line="242" selection-end-column="35" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
-                <marker date="1555901865832" expanded="true" signature="1072:1073" ph="..." />
-                <marker date="1555901865832" expanded="true" signature="1668:1673" ph="..." />
-                <marker date="1555901865832" expanded="true" signature="2391:2418" ph="..." />
-                <marker date="1555901865832" expanded="true" signature="4325:4437" ph="..." />
-                <marker date="1555901865832" expanded="true" signature="5272:5277" ph="..." />
+                <marker date="1555905298713" expanded="true" signature="1072:1073" ph="..." />
+                <marker date="1555905298713" expanded="true" signature="1668:1673" ph="..." />
+                <marker date="1555905298713" expanded="true" signature="2391:2418" ph="..." />
+                <marker date="1555905298713" expanded="true" signature="4325:4774" ph="..." />
+                <marker date="1555905298713" expanded="true" signature="5608:5613" ph="..." />
+                <marker date="1555905298713" expanded="true" signature="5993:6335" ph="..." />
+                <marker date="1555905298713" expanded="true" signature="6278:6287" ph="..." />
+                <marker date="1555905298713" expanded="true" signature="6385:6504" ph="..." />
+                <marker date="1555905298713" expanded="true" signature="6533:6534" ph="..." />
               </folding>
             </state>
           </provider>
@@ -169,8 +172,8 @@
       <list>
         <option value="$PROJECT_DIR$/dj_restful_version/dj_restful_version/urls.py" />
         <option value="$PROJECT_DIR$/dj_restful_version/api/models.py" />
-        <option value="$PROJECT_DIR$/dj_restful_version/api/urls.py" />
         <option value="$PROJECT_DIR$/dj_restful_version/dj_restful_version/settings.py" />
+        <option value="$PROJECT_DIR$/dj_restful_version/api/urls.py" />
         <option value="$PROJECT_DIR$/dj_restful_version/api/views.py" />
       </list>
     </option>
@@ -182,8 +185,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-207" />
-    <option name="y" value="6" />
+    <option name="x" value="-54" />
+    <option name="y" value="12" />
     <option name="width" value="1170" />
     <option name="height" value="988" />
   </component>
@@ -314,11 +317,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-207" y="6" width="1170" height="988" extended-state="0" />
+    <frame x="-54" y="12" width="1170" height="988" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6559633" visible="true" weight="0.16936937" />
-      <window_info id="Structure" order="1" sideWeight="0.3440367" side_tool="true" visible="true" weight="0.16936937" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6559633" visible="true" weight="0.06486487" />
+      <window_info id="Structure" order="1" sideWeight="0.3440367" side_tool="true" visible="true" weight="0.06486487" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -331,7 +334,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.23329425" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.23329425" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.32942554" />
       <window_info anchor="bottom" id="Database Console" order="14" weight="0.32942554" />
@@ -339,7 +342,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info active="true" anchor="right" id="Database" order="4" visible="true" weight="0.14054054" />
+      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.14054054" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -458,8 +461,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dj_restful_version/api/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+        <state relative-caret-position="360">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
@@ -468,15 +471,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dj_restful_version/api/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="160" column="34" selection-start-line="160" selection-start-column="34" selection-end-line="160" selection-end-column="34" />
+        <state relative-caret-position="410">
+          <caret line="242" column="35" selection-start-line="242" selection-start-column="35" selection-end-line="242" selection-end-column="35" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
-            <marker date="1555901865832" expanded="true" signature="1072:1073" ph="..." />
-            <marker date="1555901865832" expanded="true" signature="1668:1673" ph="..." />
-            <marker date="1555901865832" expanded="true" signature="2391:2418" ph="..." />
-            <marker date="1555901865832" expanded="true" signature="4325:4437" ph="..." />
-            <marker date="1555901865832" expanded="true" signature="5272:5277" ph="..." />
+            <marker date="1555905298713" expanded="true" signature="1072:1073" ph="..." />
+            <marker date="1555905298713" expanded="true" signature="1668:1673" ph="..." />
+            <marker date="1555905298713" expanded="true" signature="2391:2418" ph="..." />
+            <marker date="1555905298713" expanded="true" signature="4325:4774" ph="..." />
+            <marker date="1555905298713" expanded="true" signature="5608:5613" ph="..." />
+            <marker date="1555905298713" expanded="true" signature="5993:6335" ph="..." />
+            <marker date="1555905298713" expanded="true" signature="6278:6287" ph="..." />
+            <marker date="1555905298713" expanded="true" signature="6385:6504" ph="..." />
+            <marker date="1555905298713" expanded="true" signature="6533:6534" ph="..." />
           </folding>
         </state>
       </provider>

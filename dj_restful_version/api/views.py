@@ -157,6 +157,17 @@ from rest_framework import serializers
 #         return ret
 
 
+# class UserInfoSerializer(serializers.ModelSerializer):
+#     # lookup_url_kwarg：url中的正则名
+#     # lookup_field：根据哪个字段生成url
+#     group = serializers.HyperlinkedIdentityField(view_name='gp', lookup_field='group_id', lookup_url_kwarg='pk')
+#
+#     class Meta:
+#         model = UserInfo
+#         fields = "__all__"
+#         depth = 1
+
+
 # ----------------------------------------------------------
 #  HyperlinkedIdentityField 实现关联表的url生成
 # 不常用
@@ -178,7 +189,6 @@ class UserInfoView(APIView):
         user = UserInfo.objects.all()
         # 使用HyperlinkedIdentityField时序列化对象必须加context={"request": request}
         ser = UserInfoSerializer(instance=user, many=True, context={"request": request})
-
         ret = json.dumps(ser.data, ensure_ascii=False)
         return HttpResponse(ret)
 
@@ -200,3 +210,36 @@ class GroupView(APIView):
         return HttpResponse(ret)
 
 
+# ----------------------------------------------------------
+# 验证数据
+
+class CheckValidator:
+    """自定义验证规则"""
+
+    def __init__(self, base):
+        self.base = base
+
+    def __call__(self, value):
+        if not value.startswith(self.base):
+            message = "标题必须以{}开头".format(self.base)
+            raise serializers.ValidationError(message)
+
+    def set_context(self, serializer_field):
+        # 执行之前调用，serializer_field是当前字段对象
+        pass
+
+
+class UserGroupSerializer(serializers.Serializer):
+    title = serializers.CharField(error_messages={"required": "标题不能为空"}, validators=[CheckValidator('Fatpuffer'),])
+
+
+class UserGroupView(APIView):
+
+    def post(self, request, *args, **kwargs):
+        serializer = UserGroupSerializer(data=request.data)
+        if serializer.is_valid():
+            print(serializer.validated_data['title'])
+        else:
+            print(serializer.errors)
+
+        return HttpResponse('提交数据')
