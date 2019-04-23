@@ -345,24 +345,70 @@ from rest_framework.pagination import PageNumberPagination
 # ----------------------------------------------------------
 # 分页
 # 2.分页，在n个位置，向后查看n条数据
+#
+# from rest_framework.pagination import LimitOffsetPagination
+#
+#
+# class MyPageNumberPagination(LimitOffsetPagination):
+#     """
+#         继承LimitOffsetPagination并扩展分页
+#         http://127.0.0.1:8000/api/v1/pageer1/?offset=0&limit=3
+#     """
+#     default_limit = 2  # 默认每页显示数量
+#     max_limit = 5  # 每页显示最大值，防止一次性获取数据过大，导致数据库崩溃
+#     limit_query_param = 'limit'
+#     offset_query_param = 'offset'
+#
+#
+# class Pager1View(APIView):
+#     """
+#         http://127.0.0.1:8000/api/v1/pageer1/?offset=0
+#     """
+#     def get(self, request, *args, **kwargs):
+#
+#         # 获取所有数据
+#         roles = Role.objects.all()
+#
+#         # 创建分页对象
+#         pg = LimitOffsetPagination()
+#
+#         # 在数据库中获取分页数据
+#         page_roles = pg.paginate_queryset(queryset=roles, request=request, view=self)
+#
+#         # 对分页数据进行序列化
+#         ser = PagerSerializer(instance=page_roles, many=True)
+#
+#         # 提供上一页下一页连接，以及数据总数量
+#         # page = pg.get_paginated_response(ser.data)
+#         # return Response(page.data)
+#
+#         return Response(ser.data)
 
-from rest_framework.pagination import LimitOffsetPagination
+
+# ----------------------------------------------------------
+# 分页
+# 3.加密分页，上一页和下一页：在分页时记录最大页码和最小页码，实现跳转时查询，避免随着页码越大查询数据越多从而导致加载数据缓慢问题
+
+from rest_framework.pagination import CursorPagination
 
 
-class MyPageNumberPagination(LimitOffsetPagination):
+class MyPageNumberPagination(CursorPagination):
     """
-        继承LimitOffsetPagination并扩展分页
-        http://127.0.0.1:8000/api/v1/pageer1/?offset=0&limit=3
+        继承CursorPagination并扩展分页
+        http://127.0.0.1:8000/api/v1/pageer1/?cursor=cD0y
     """
-    default_limit = 2  # 默认每页显示数量
-    max_limit = 5  # 每页显示最大值，防止一次性获取数据过大，导致数据库崩溃
-    limit_query_param = 'limit'
-    offset_query_param = 'offset'
+    cursor_query_param = 'cursor'
+    page_size = 2
+    ordering = 'id'  # 排序规则
+
+    page_size_query_param = 3  # 每页显示个数
+
+    max_page_size = 5  # 一页最多显示多少个
 
 
 class Pager1View(APIView):
     """
-        http://127.0.0.1:8000/api/v1/pageer1/?offset=0
+        加密分页，不能直接输入页码
     """
     def get(self, request, *args, **kwargs):
 
@@ -370,7 +416,8 @@ class Pager1View(APIView):
         roles = Role.objects.all()
 
         # 创建分页对象
-        pg = LimitOffsetPagination()
+        # pg = CursorPagination()
+        pg = MyPageNumberPagination()
 
         # 在数据库中获取分页数据
         page_roles = pg.paginate_queryset(queryset=roles, request=request, view=self)
@@ -379,12 +426,5 @@ class Pager1View(APIView):
         ser = PagerSerializer(instance=page_roles, many=True)
 
         # 提供上一页下一页连接，以及数据总数量
-        # page = pg.get_paginated_response(ser.data)
-        # return Response(page.data)
-
-        return Response(ser.data)
-
-
-# ----------------------------------------------------------
-# 分页
-# 3.加密分页，上一页和下一页：在分页时记录最大页码和最小页码，实现跳转时查询，避免随着页码越大查询数据越多从而导致加载数据缓慢问题
+        page = pg.get_paginated_response(ser.data)
+        return Response(page.data)
