@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'^(?P<version>[v1|v2]+)/group/(?P<pk>\d+)$', GroupView.as_view(), name='gp'),
     url(r'^(?P<version>[v1|v2]+)/usergroup/$', UserGroupView.as_view()),
     url(r'^(?P<version>[v1|v2]+)/pageer1/$', Pager1View.as_view()),
+    url(r'^(?P<version>[v1|v2]+)/v1/$', View1View.as_view()),
 
 ]

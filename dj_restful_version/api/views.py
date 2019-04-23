@@ -428,3 +428,31 @@ class Pager1View(APIView):
         # 提供上一页下一页连接，以及数据总数量
         page = pg.get_paginated_response(ser.data)
         return Response(page.data)
+
+
+# ----------------------------------------------------------
+# 视图 GenericAPIView
+from api.utils.serializers.pager import PagerSerializer
+from rest_framework.generics import GenericAPIView
+
+
+class View1View(GenericAPIView):
+    queryset = Role.objects.all()
+    serializer_class = PagerSerializer
+    pagination_class = PageNumberPagination
+
+    def get(self, request, *args, **kwargs):
+
+        # 获取数据
+        roles = self.get_queryset()
+
+        # 获取分页对象
+        pager_roles = self.paginate_queryset(roles)
+
+        # 获取序列化对象
+        ser = self.get_serializer(instance=pager_roles, many=True)
+
+        return Response(ser.data)
+
+
+
