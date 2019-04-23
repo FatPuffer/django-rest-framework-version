@@ -59,24 +59,24 @@
         <counts>
           <entry key="api_role" value="1" />
           <entry key="api_userinfo_roles" value="1" />
-          <entry key="py" value="7" />
+          <entry key="py" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Database Element" value="2" />
-          <entry key="Python" value="7" />
+          <entry key="Python" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="cell" value="30" />
-          <entry key="py" value="1068" />
+          <entry key="py" value="1347" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="1068" />
+          <entry key="Python" value="1347" />
           <entry key="Scratch" value="30" />
         </counts>
       </usages-collector>
@@ -87,7 +87,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/utils/serializers/pager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
+            <state>
               <caret line="2" selection-start-line="2" selection-end-line="2" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
@@ -99,8 +99,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+            <state relative-caret-position="420">
+              <caret line="17" column="87" selection-start-line="17" selection-start-column="87" selection-end-line="17" selection-end-column="87" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -111,23 +111,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="472" column="12" selection-start-line="472" selection-start-column="12" selection-end-line="472" selection-end-column="12" />
+            <state relative-caret-position="200">
+              <caret line="488" column="12" selection-start-line="488" selection-start-column="12" selection-end-line="488" selection-end-column="12" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
-                <marker date="1555986263822" expanded="true" signature="8615:8828" ph="..." />
-                <marker date="1555986263822" expanded="true" signature="11936:12533" ph="..." />
-                <marker date="1555986263822" expanded="true" signature="12099:12109" ph="..." />
+                <marker date="1555988982303" expanded="true" signature="8615:8828" ph="..." />
+                <marker date="1555988982303" expanded="true" signature="11936:12533" ph="..." />
+                <marker date="1555988982303" expanded="true" signature="12099:12109" ph="..." />
+                <marker date="1555988982303" expanded="true" signature="13326:13331" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/ENVS/django/Lib/site-packages/rest_framework/viewsets.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="199" lean-forward="true" selection-start-line="199" selection-end-line="199" />
             </state>
           </provider>
         </entry>
@@ -162,9 +154,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-106" />
-    <option name="y" value="4" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="46" />
+    <option name="y" value="19" />
     <option name="width" value="1170" />
     <option name="height" value="988" />
   </component>
@@ -258,10 +250,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-106" y="4" width="1170" height="988" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15315315" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.090618335" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -275,14 +267,14 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32942554" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.30510315" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.015315316" />
+      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.009061834" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -315,7 +307,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/utils/serializers/pager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
+        <state>
           <caret line="2" selection-start-line="2" selection-end-line="2" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
@@ -330,17 +322,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://C:/ENVS/django/Lib/site-packages/rest_framework/mixins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="50" column="6" selection-start-line="50" selection-start-column="6" selection-end-line="50" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://C:/ENVS/django/Lib/site-packages/rest_framework/viewsets.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="199" lean-forward="true" selection-start-line="199" selection-end-line="199" />
+        <state relative-caret-position="264">
+          <caret line="219" column="32" selection-start-line="219" selection-start-column="32" selection-end-line="219" selection-end-column="32" />
+          <folding>
+            <element signature="e#1161#7117#0" />
+            <element signature="e#7168#7256#0" />
+            <element signature="e#7324#7531#0" />
+            <element signature="e#7686#7777#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+        <state relative-caret-position="420">
+          <caret line="17" column="87" selection-start-line="17" selection-start-column="87" selection-end-line="17" selection-end-column="87" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
@@ -349,13 +354,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="472" column="12" selection-start-line="472" selection-start-column="12" selection-end-line="472" selection-end-column="12" />
+        <state relative-caret-position="200">
+          <caret line="488" column="12" selection-start-line="488" selection-start-column="12" selection-end-line="488" selection-end-column="12" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
-            <marker date="1555986263822" expanded="true" signature="8615:8828" ph="..." />
-            <marker date="1555986263822" expanded="true" signature="11936:12533" ph="..." />
-            <marker date="1555986263822" expanded="true" signature="12099:12109" ph="..." />
+            <marker date="1555988982303" expanded="true" signature="8615:8828" ph="..." />
+            <marker date="1555988982303" expanded="true" signature="11936:12533" ph="..." />
+            <marker date="1555988982303" expanded="true" signature="12099:12109" ph="..." />
+            <marker date="1555988982303" expanded="true" signature="13326:13331" ph="..." />
           </folding>
         </state>
       </provider>

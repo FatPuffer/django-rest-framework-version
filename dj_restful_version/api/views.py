@@ -482,3 +482,24 @@ class View2View(GenericViewSet):
         ser = self.get_serializer(instance=pager_roles, many=True)
 
         return Response(ser.data)
+
+
+# ----------------------------------------------------------
+# 视图 ModelViewSet
+# 一个试图对应两个路由
+from api.utils.serializers.pager import PagerSerializer
+from rest_framework.viewsets import ModelViewSet
+
+
+class View3View(ModelViewSet):
+    """
+        class ModelViewSet(mixins.CreateModelMixin,  # 封装create方法，创建数据，相当于post
+                   mixins.RetrieveModelMixin,  # 封装retrieve方法，获取单条数据
+                   mixins.UpdateModelMixin,  # 封装update，partial_update方法，修改单条数据，相当于put，patch
+                   mixins.DestroyModelMixin,  # 封装destroy方法，删除单条数据，相当于delete
+                   mixins.ListModelMixin,  # 封装list方法，获取所有数据，相当于get
+                   GenericViewSet):
+    """
+    queryset = Role.objects.all()
+    serializer_class = PagerSerializer
+    pagination_class = PageNumberPagination

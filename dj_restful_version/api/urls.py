@@ -12,5 +12,9 @@ urlpatterns = [
     url(r'^(?P<version>[v1|v2]+)/pageer1/$', Pager1View.as_view()),
     url(r'^(?P<version>[v1|v2]+)/v1/$', View1View.as_view()),
     url(r'^(?P<version>[v1|v2]+)/v2/$', View2View.as_view({'get': 'list'})),
-
+    url(r'^(?P<version>[v1|v2]+)/v3/$', View3View.as_view({'get': 'list', 'post': 'create'})),
+    url(r'^(?P<version>[v1|v2]+)/v3/(?P<pk>\d+)$', View3View.as_view({'get': 'retrieve', 'put': 'update',
+                                                                      'patch': 'partial_update',
+                                                                      'delete': 'destroy'})),
 ]
+
