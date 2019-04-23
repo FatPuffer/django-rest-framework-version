@@ -455,4 +455,30 @@ class View1View(GenericAPIView):
         return Response(ser.data)
 
 
+# ----------------------------------------------------------
+# 视图 GenericViewSet
+from api.utils.serializers.pager import PagerSerializer
+from rest_framework.viewsets import GenericViewSet
 
+
+class View2View(GenericViewSet):
+    """
+        class GenericViewSet(ViewSetMixin, generics.GenericAPIView)
+        ViewSetMixin：重写了as_view()方法
+    """
+    queryset = Role.objects.all()
+    serializer_class = PagerSerializer
+    pagination_class = PageNumberPagination
+
+    def list(self, request, *args, **kwargs):
+
+        # 获取数据
+        roles = self.get_queryset()
+
+        # 获取分页对象
+        pager_roles = self.paginate_queryset(roles)
+
+        # 获取序列化对象
+        ser = self.get_serializer(instance=pager_roles, many=True)
+
+        return Response(ser.data)

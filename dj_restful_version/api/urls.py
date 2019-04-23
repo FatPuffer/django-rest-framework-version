@@ -11,5 +11,6 @@ urlpatterns = [
     url(r'^(?P<version>[v1|v2]+)/usergroup/$', UserGroupView.as_view()),
     url(r'^(?P<version>[v1|v2]+)/pageer1/$', Pager1View.as_view()),
     url(r'^(?P<version>[v1|v2]+)/v1/$', View1View.as_view()),
+    url(r'^(?P<version>[v1|v2]+)/v2/$', View2View.as_view({'get': 'list'})),
 
 ]
